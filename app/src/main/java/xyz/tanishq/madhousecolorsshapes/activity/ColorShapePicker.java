@@ -5,23 +5,19 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import xyz.tanishq.madhousecolorsshapes.R;
-import xyz.tanishq.madhousecolorsshapes.adapters.ColorGridAdapter;
-import xyz.tanishq.madhousecolorsshapes.adapters.ShapeGridAdapter;
 
 public class ColorShapePicker extends AppCompatActivity {
 
-    private GridView shapeGrid;
-    private GridView colorGrid;
+
     private TextView mainText;
     private ImageView mainImage;
     private boolean isColored = false;
@@ -29,42 +25,174 @@ public class ColorShapePicker extends AppCompatActivity {
     private int selectedColor;
     private int selectedShape;
     private static final String TAG = "ColorShapePicker";
+    private int[] colorSounds = {
+            R.raw.black,
+            R.raw.red,
+            R.raw.orange,
+            R.raw.yellow,
+            R.raw.green,
+            R.raw.blue
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_shape_picker);
 
-        shapeGrid = (GridView) findViewById(R.id.shapegrid);
-        colorGrid = (GridView) findViewById(R.id.colorgrid);
-        mainText = (TextView) findViewById(R.id.mainText);
-        mainImage = (ImageView) findViewById(R.id.mainImage);
-        shapeGrid.setAdapter(new ShapeGridAdapter(getApplicationContext()));
-        shapeGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mainText = (TextView) findViewById(R.id.outputText);
+        mainImage = (ImageView) findViewById(R.id.outputImage);
+        final LinearLayout circle = (LinearLayout) findViewById(R.id.circle);
+        LinearLayout rectangle = (LinearLayout) findViewById(R.id.rectangle);
+        LinearLayout triangle = (LinearLayout) findViewById(R.id.triangle);
+        LinearLayout square = (LinearLayout) findViewById(R.id.square);
+        LinearLayout pentagon = (LinearLayout) findViewById(R.id.pentagon);
+        LinearLayout hexagon = (LinearLayout) findViewById(R.id.hexagon);
+        LinearLayout black = (LinearLayout) findViewById(R.id.black);
+        LinearLayout red = (LinearLayout) findViewById(R.id.red);
+        LinearLayout orange = (LinearLayout) findViewById(R.id.orange);
+        LinearLayout yellow = (LinearLayout) findViewById(R.id.yellow);
+        LinearLayout green = (LinearLayout) findViewById(R.id.green);
+        LinearLayout blue = (LinearLayout) findViewById(R.id.blue);
+        circle.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (isShaped && selectedShape == position) {
+            public void onClick(View v) {
+                if (isShaped && selectedShape == 0) {
                     isShaped = false;
-                    mainText.setText("");
                 } else {
                     isShaped = true;
-                    selectedShape = position;
+                    selectedShape = 0;
                 }
                 setColor();
             }
         });
-        final int[] colors = this.getResources().getIntArray(R.array.gridColors);
-        Log.d(TAG, "onCreate: " + colors.length);
-        colorGrid.setAdapter(new ColorGridAdapter(getApplicationContext(), colors));
-        colorGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        rectangle.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (isColored && selectedColor == position) {
+            public void onClick(View v) {
+                if (isShaped && selectedShape == 1) {
+                    isShaped = false;
+                } else {
+                    isShaped = true;
+                    selectedShape = 1;
+                }
+                setColor();
+            }
+        });
+        triangle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isShaped && selectedShape == 2) {
+                    isShaped = false;
+                } else {
+                    isShaped = true;
+                    selectedShape = 2;
+                }
+                setColor();
+            }
+        });
+        square.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isShaped && selectedShape == 3) {
+                    isShaped = false;
+                } else {
+                    isShaped = true;
+                    selectedShape = 3;
+                }
+                setColor();
+            }
+        });
+        pentagon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isShaped && selectedShape == 4) {
+                    isShaped = false;
+                } else {
+                    isShaped = true;
+                    selectedShape = 4;
+                }
+                setColor();
+            }
+        });
+        hexagon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isShaped && selectedShape == 5) {
+                    isShaped = false;
+                } else {
+                    isShaped = true;
+                    selectedShape = 5;
+                }
+                setColor();
+            }
+        });
+        black.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isColored && selectedColor == 0) {
                     isColored = false;
-                    mainText.setText("");
                 } else {
                     isColored = true;
-                    selectedColor = position;
+                    selectedColor = 0;
+                }
+                setColor();
+            }
+        });
+        red.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isColored && selectedColor == 1) {
+                    isColored = false;
+                } else {
+                    isColored = true;
+                    selectedColor = 1;
+                }
+                setColor();
+            }
+        });
+        orange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isColored && selectedColor == 2) {
+                    isColored = false;
+                } else {
+                    isColored = true;
+                    selectedColor = 2;
+                }
+                setColor();
+            }
+        });
+        yellow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isColored && selectedColor == 3) {
+                    isColored = false;
+                } else {
+                    isColored = true;
+                    selectedColor = 3;
+                }
+                setColor();
+            }
+        });
+        green.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isColored && selectedColor == 4) {
+                    isColored = false;
+                } else {
+                    isColored = true;
+                    selectedColor = 4;
+                }
+                setColor();
+            }
+        });
+        blue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isColored && selectedColor == 5) {
+                    isColored = false;
+                } else {
+                    isColored = true;
+                    selectedColor = 5;
                 }
                 setColor();
             }
@@ -76,6 +204,8 @@ public class ColorShapePicker extends AppCompatActivity {
         final String[] colorNames = this.getResources().getStringArray(R.array.colorNames);
         final String[] shapes = this.getResources().getStringArray(R.array.shapeNames);
         if (isColored) {
+            MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), colorSounds[selectedColor]);
+            mediaPlayer.start();
             if (isShaped) {
                 mainText.setText(colorNames[selectedColor] + " " + shapes[selectedShape]);
                 mainText.setTextColor(colors[selectedColor]);

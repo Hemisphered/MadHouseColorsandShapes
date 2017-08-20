@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MadHouseColors&amp;Shapes</string>
+    <string name="app_name">MadHouseToddlerColorAndShapes</string>
     <string-array name="colorNames">
         <item>Black</item>
         <item>Red</item>

@@ -6,72 +6,249 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="8"
-    android:background="#FFFFFF"
+    android:weightSum="3"
     tools:context="xyz.tanishq.madhousecolorsshapes.activity.ColorShapePicker">
 
 
+    <!-- This is for adding objects -->
     <LinearLayout
+        android:id="@+id/objects"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#000"
+        android:orientation="vertical"
+        android:padding="1dp"
+        android:weightSum="2">
 
-        <GridView
-            android:id="@+id/shapegrid"
+        <!-- Upper Half -->
+        <LinearLayout
+            android:id="@+id/ObjectUpperHalf"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:columnWidth="100dp"
-            android:gravity="center"
-            android:horizontalSpacing="4dp"
-            android:numColumns="3"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="4dp"/>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="3">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:orientation="vertical">
+            <!-- Three Columns -->
 
-
-            <ImageView
-                android:id="@+id/mainImage"
+            <LinearLayout
+                android:id="@+id/circle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"/>
-
-            <TextView
-                android:id="@+id/mainText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:textSize="32sp"/>
+                android:background="@drawable/circle">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rectangle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/triangle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/triangle">
+
+            </LinearLayout>
+
+            <!-- Three Colums end -->
+
+        </LinearLayout>
+
+        <!-- Lower Half -->
+        <LinearLayout
+            android:id="@+id/ObjectLowerHalf"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- Three Columns -->
+
+            <LinearLayout
+                android:id="@+id/square"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/square">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pentagon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/pentagon">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hexagon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/hexagon">
+
+            </LinearLayout>
+
+            <!-- Three columns end -->
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
+    <!-- Output window -->
     <LinearLayout
+        android:id="@+id/output"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <GridView
-            android:id="@+id/colorgrid"
+        <ImageView
+            android:id="@+id/outputImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:columnWidth="100dp"
-            android:gravity="center"
-            android:horizontalSpacing="4dp"
-            android:numColumns="3"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="4dp"/>
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/outputText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="32sp"/>
+
     </LinearLayout>
+
+    <!-- This is for colors -->
+
+    <LinearLayout
+        android:id="@+id/colors"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <!-- Upper Half -->
+        <LinearLayout
+            android:id="@+id/ColorUpperHalf"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#1976d2"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- Three Columns -->
+            <LinearLayout
+                android:id="@+id/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/red"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#D32F2F"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/green"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#4CAF50"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <!-- Three Columns End -->
+
+        </LinearLayout>
+
+        <!-- Lower Half -->
+        <LinearLayout
+            android:id="@+id/ColorLowerHalf"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#2196F3"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- Three Columns -->
+
+            <LinearLayout
+                android:id="@+id/yellow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FBC02D"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/blue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#1976D2"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/orange"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FF5722"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+
+            <!-- Three Columns End -->
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
 </LinearLayout>
