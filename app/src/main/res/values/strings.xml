@@ -3,17 +3,17 @@
     <string-array name="colorNames">
         <item>Black</item>
         <item>Red</item>
-        <item>Orange</item>
-        <item>Yellow</item>
         <item>Green</item>
+        <item>Yellow</item>
+        <item>Orange</item>
         <item>Blue</item>
     </string-array>
     <array name="gridColors">
         <item>@color/black</item>
         <item>@color/red</item>
-        <item>@color/orange</item>
-        <item>@color/yellow</item>
         <item>@color/green</item>
+        <item>@color/yellow</item>
+        <item>@color/orange</item>
         <item>@color/blue</item>
     </array>
     <array name="rainbow">

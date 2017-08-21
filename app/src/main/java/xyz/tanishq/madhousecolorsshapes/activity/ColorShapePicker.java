@@ -28,10 +28,27 @@ public class ColorShapePicker extends AppCompatActivity {
     private int[] colorSounds = {
             R.raw.black,
             R.raw.red,
-            R.raw.orange,
-            R.raw.yellow,
             R.raw.green,
+            R.raw.yellow,
+            R.raw.orange,
             R.raw.blue
+    };
+    private int[] shapeSounds = {
+            R.raw.circle,
+            R.raw.rectangle,
+            R.raw.triangle,
+            R.raw.square,
+            R.raw.pentagon,
+            R.raw.hexagon
+    };
+    private int[][] shapesAndColorSounds = {
+            {R.raw.blackcircle, R.raw.blackrectangle, R.raw.blacktriangle, R.raw.blacksquare, R.raw.blackpentagon, R.raw.blackhexagon},
+            {R.raw.redcircle, R.raw.redrectangle, R.raw.redtriangle, R.raw.redsquare, R.raw.redpentagon, R.raw.redhexagon},
+            {R.raw.greencircle, R.raw.greenrectangle, R.raw.greentriangle, R.raw.greensquare, R.raw.greenpentagon, R.raw.greenhexagon},
+            {R.raw.yellowcircle, R.raw.yellowrectangle, R.raw.yellowtriangle, R.raw.yellowsquare, R.raw.yellowpentagon, R.raw.yellowhexagon},
+            {R.raw.orangecircle, R.raw.orangerectangle, R.raw.orangetriangle, R.raw.orangesquare, R.raw.orangepentagon, R.raw.orangehexagon},
+            {R.raw.bluecircle, R.raw.bluerectangle, R.raw.bluetriangle, R.raw.bluesquare, R.raw.bluepentagon, R.raw.bluehexagon}
+
     };
 
     @Override
@@ -149,7 +166,7 @@ public class ColorShapePicker extends AppCompatActivity {
                 setColor();
             }
         });
-        orange.setOnClickListener(new View.OnClickListener() {
+        green.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isColored && selectedColor == 2) {
@@ -173,7 +190,7 @@ public class ColorShapePicker extends AppCompatActivity {
                 setColor();
             }
         });
-        green.setOnClickListener(new View.OnClickListener() {
+        orange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isColored && selectedColor == 4) {
@@ -204,19 +221,23 @@ public class ColorShapePicker extends AppCompatActivity {
         final String[] colorNames = this.getResources().getStringArray(R.array.colorNames);
         final String[] shapes = this.getResources().getStringArray(R.array.shapeNames);
         if (isColored) {
-            MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), colorSounds[selectedColor]);
-            mediaPlayer.start();
             if (isShaped) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), shapesAndColorSounds[selectedColor][selectedShape]);
+                mediaPlayer.start();
                 mainText.setText(colorNames[selectedColor] + " " + shapes[selectedShape]);
                 mainText.setTextColor(colors[selectedColor]);
                 drawShape(selectedShape, colors[selectedColor]);
             } else {
+                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), colorSounds[selectedColor]);
+                mediaPlayer.start();
                 mainImage.setImageBitmap(null);
                 mainText.setText(colorNames[selectedColor]);
                 mainText.setTextColor(colors[selectedColor]);
             }
         } else {
             if (isShaped) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), shapeSounds[selectedShape]);
+                mediaPlayer.start();
                 mainText.setText(shapes[selectedShape]);
                 mainText.setTextColor(Color.BLACK);
                 drawShape(selectedShape, Color.WHITE);
