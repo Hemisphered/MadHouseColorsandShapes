@@ -220,19 +220,22 @@ public class ColorShapePicker extends AppCompatActivity {
         final int[] colors = this.getResources().getIntArray(R.array.gridColors);
         final String[] colorNames = this.getResources().getStringArray(R.array.colorNames);
         final String[] shapes = this.getResources().getStringArray(R.array.shapeNames);
+        LinearLayout outputColor = (LinearLayout) findViewById(R.id.output);
+        outputColor.setBackgroundResource(R.drawable.shape);
+        mainText.setTextColor(Color.BLACK);
         if (isColored) {
             if (isShaped) {
                 MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), shapesAndColorSounds[selectedColor][selectedShape]);
                 mediaPlayer.start();
                 mainText.setText(colorNames[selectedColor] + " " + shapes[selectedShape]);
-                mainText.setTextColor(colors[selectedColor]);
                 drawShape(selectedShape, colors[selectedColor]);
             } else {
+                outputColor.setBackgroundColor(colors[selectedColor]);
                 MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), colorSounds[selectedColor]);
                 mediaPlayer.start();
                 mainImage.setImageBitmap(null);
                 mainText.setText(colorNames[selectedColor]);
-                mainText.setTextColor(colors[selectedColor]);
+                mainText.setTextColor(Color.WHITE);
             }
         } else {
             if (isShaped) {

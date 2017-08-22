@@ -11,12 +11,12 @@
 
 
     <!-- This is for adding objects -->
+
     <LinearLayout
         android:id="@+id/objects"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#000"
         android:orientation="vertical"
         android:padding="1dp"
         android:weightSum="2">
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#fff"
+            android:background="@color/black"
             android:baselineAligned="false"
             android:orientation="horizontal"
             android:weightSum="3">
@@ -38,30 +38,55 @@
                 android:id="@+id/circle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle">
+                android:background="#FFFFFF">
 
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/circle"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/rectangle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/rectangle">
+                android:background="#FFFFFF">
 
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/rectangle"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/triangle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/triangle">
+                android:background="#FFFFFF">
 
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/triangle"/>
             </LinearLayout>
 
             <!-- Three Colums end -->
@@ -74,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#fff"
+            android:background="#000000"
             android:orientation="horizontal"
             android:weightSum="3">
 
@@ -84,30 +109,55 @@
                 android:id="@+id/square"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/square">
+                android:background="#FFFFFF">
 
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/square"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/pentagon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/pentagon">
+                android:background="#FFFFFF">
 
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:rotation="90"
+                    app:srcCompat="@drawable/pentagon"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/hexagon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/hexagon">
+                android:background="#FFFFFF">
 
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/hexagon"/>
             </LinearLayout>
 
             <!-- Three columns end -->
@@ -123,7 +173,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#fff"
+        android:background="@drawable/shape"
         android:orientation="vertical"
         android:padding="20dp">
 
@@ -137,9 +187,10 @@
             android:id="@+id/outputText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:textSize="32sp"/>
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:textSize="36sp"/>
 
     </LinearLayout>
 
@@ -160,7 +211,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#1976d2"
+            android:background="#FFFFFF"
             android:orientation="horizontal"
             android:weightSum="3">
 
@@ -169,6 +220,8 @@
                 android:id="@+id/black"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
                 android:background="#000000"
                 android:orientation="horizontal">
@@ -179,6 +232,8 @@
                 android:id="@+id/red"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
                 android:background="#D32F2F"
                 android:orientation="horizontal">
@@ -189,6 +244,9 @@
                 android:id="@+id/green"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
                 android:background="#4CAF50"
                 android:orientation="horizontal">
@@ -205,7 +263,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#2196F3"
+            android:background="#FFFFFF"
             android:orientation="horizontal"
             android:weightSum="3">
 
@@ -215,6 +273,9 @@
                 android:id="@+id/yellow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
                 android:background="#FBC02D"
                 android:orientation="horizontal">
@@ -225,6 +286,9 @@
                 android:id="@+id/blue"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
                 android:background="#1976D2"
                 android:orientation="horizontal">
@@ -235,6 +299,10 @@
                 android:id="@+id/orange"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
                 android:layout_weight="1"
                 android:background="#FF5722"
                 android:orientation="horizontal">
