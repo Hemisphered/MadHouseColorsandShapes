@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ColorAndShapes</string>
+    <string name="app_name">Color&amp;Shapes</string>
     <string-array name="colorNames">
         <item>Black</item>
         <item>Red</item>
