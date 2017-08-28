@@ -1,5 +1,6 @@
 package xyz.tanishq.madhousecolorsshapes.activity;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -12,6 +13,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import xyz.tanishq.madhousecolorsshapes.R;
 
@@ -56,8 +60,10 @@ public class ColorShapePicker extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_shape_picker);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mainText = (TextView) findViewById(R.id.outputText);
         mainImage = (ImageView) findViewById(R.id.outputImage);
+
         final LinearLayout circle = (LinearLayout) findViewById(R.id.circle);
         LinearLayout rectangle = (LinearLayout) findViewById(R.id.rectangle);
         LinearLayout triangle = (LinearLayout) findViewById(R.id.triangle);
@@ -214,6 +220,12 @@ public class ColorShapePicker extends AppCompatActivity {
                 setColor();
             }
         });
+
+        AdView adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template")
+                .build();
+        adView.loadAd(adRequest);
     }
 
     void setColor() {
@@ -323,4 +335,6 @@ public class ColorShapePicker extends AppCompatActivity {
         }
         mainImage.setImageBitmap(bitmap);
     }
+
+
 }
