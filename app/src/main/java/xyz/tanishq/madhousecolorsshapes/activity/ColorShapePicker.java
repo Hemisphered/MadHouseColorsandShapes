@@ -28,6 +28,7 @@ public class ColorShapePicker extends AppCompatActivity {
     private boolean isShaped = false;
     private int selectedColor;
     private int selectedShape;
+    private MediaPlayer mediaPlayer = new MediaPlayer();
     private static final String TAG = "ColorShapePicker";
     private int[] colorSounds = {
             R.raw.black,
@@ -223,12 +224,16 @@ public class ColorShapePicker extends AppCompatActivity {
 
         AdView adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
-                .setRequestAgent("android_studio:ad_template")
+                .setRequestAgent("ca-app-pub-9399213409638993/5452417443")
+                .tagForChildDirectedTreatment(true)
                 .build();
         adView.loadAd(adRequest);
     }
 
     void setColor() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
         final int[] colors = this.getResources().getIntArray(R.array.gridColors);
         final String[] colorNames = this.getResources().getStringArray(R.array.colorNames);
         final String[] shapes = this.getResources().getStringArray(R.array.shapeNames);
@@ -237,13 +242,13 @@ public class ColorShapePicker extends AppCompatActivity {
         mainText.setTextColor(Color.BLACK);
         if (isColored) {
             if (isShaped) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), shapesAndColorSounds[selectedColor][selectedShape]);
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), shapesAndColorSounds[selectedColor][selectedShape]);
                 mediaPlayer.start();
                 mainText.setText(colorNames[selectedColor] + " " + shapes[selectedShape]);
                 drawShape(selectedShape, colors[selectedColor]);
             } else {
                 outputColor.setBackgroundColor(colors[selectedColor]);
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), colorSounds[selectedColor]);
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), colorSounds[selectedColor]);
                 mediaPlayer.start();
                 mainImage.setImageBitmap(null);
                 mainText.setText(colorNames[selectedColor]);
@@ -251,7 +256,7 @@ public class ColorShapePicker extends AppCompatActivity {
             }
         } else {
             if (isShaped) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), shapeSounds[selectedShape]);
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), shapeSounds[selectedShape]);
                 mediaPlayer.start();
                 mainText.setText(shapes[selectedShape]);
                 mainText.setTextColor(Color.BLACK);
